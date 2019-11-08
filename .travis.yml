@@ -24,16 +24,16 @@ after_success:
   - docker push calison/fibonacci-server
   - docker push calison/fibonacci-worker
 
-#deploy:
-#  provider: elasticbeanstalk
-#  region: "us-east-2"
-#  app: "docker-react"
-#  env: "DockerReact-env"
-#  bucket_name: "elasticbeanstalk-us-east-2-901399634517"
-#  bukect_path: "docker-react"
-#  on:
-#    branch: master
-#  access_key_id:
-#    secure: "$AWS_ACCESS_KEY"
-#  secret_access_key:
-#    secure: "$AWS_SECRET_KEY"
+deploy:
+  provider: elasticbeanstalk
+  region: "us-east-2"
+  app: "fib-docker"
+  env: "FibDocker-env"
+  bucket_name: "elasticbeanstalk-us-east-2-901399634517"
+  bukect_path: "fib-docker"
+  on:
+    branch: master
+  access_key_id:
+    secure: "$AWS_ACCESS_KEY"
+  secret_access_key:
+    secure: "$AWS_SECRET_KEY"
