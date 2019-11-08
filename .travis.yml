@@ -19,7 +19,7 @@ after_success:
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
 
   # push to docker hub
-  - docker push calison/fibonacci-client
+  - docker push fibonacci-client
 #  - docker push calison/fibonacci-nginx
 #  - docker push calison/fibonacci-server
 #  - docker push calison/fibonacci-worker
