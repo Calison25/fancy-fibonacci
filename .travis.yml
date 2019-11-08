@@ -6,23 +6,23 @@ services:
 before_install:
   - docker build -t fibonacci -f ./client/Dockerfile.dev .
 
-script:
-  - docker run -e CI=true fibonacci npm run test
+#script:
+#  - docker run -e CI=true fibonacci npm run test
 
-#after_success:
-#  - docker build -t fibonacci-client ./client
-#  - docker build -t fibonacci-nginx ./nginx
-#  - docker build -t fibonacci-server ./server
-#  - docker build -t fibonacci-worker ./worker
-#
-#  # Log in to the docker CLI
-#  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
-#
-#  # push to docker hub
-#  - docker push fibonacci-client
-#  - docker push fibonacci-nginx
-#  - docker push fibonacci-server
-#  - docker push fibonacci-worker
+after_success:
+  - docker build -t fibonacci-client ./client
+  - docker build -t fibonacci-nginx ./nginx
+  - docker build -t fibonacci-server ./server
+  - docker build -t fibonacci-worker ./worker
+
+  # Log in to the docker CLI
+  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
+
+  # push to docker hub
+  - docker push fibonacci-client
+  - docker push fibonacci-nginx
+  - docker push fibonacci-server
+  - docker push fibonacci-worker
 
 #deploy:
 #  provider: elasticbeanstalk

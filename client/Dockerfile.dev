@@ -2,5 +2,5 @@ FROM node:alpine
 WORKDIR '/app'
 COPY ./client/package.json ./client
 RUN npm install
-COPY ./client .
+COPY . .
 CMD ["npm", "run", "start"]
