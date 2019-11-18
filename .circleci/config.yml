@@ -1,5 +1,5 @@
 version: 2
 jobs:
   build:
-    docker:
-      - image: docker build -t fibonacci -f ./client/Dockerfile.dev .
+    steps:
+      - run: docker build -t fibonacci -f ./client/Dockerfile.dev .
