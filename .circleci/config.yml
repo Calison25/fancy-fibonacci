@@ -11,4 +11,10 @@ jobs:
        - image: circleci/ruby:2.4.1
      steps:
        - checkout
-       - run: echo "Step 1"    
+       - run: echo "Step 1"
+workflows:
+   version: 2
+   one_and_two:
+     jobs:
+       - one
+       - two       
