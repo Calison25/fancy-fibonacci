@@ -9,3 +9,6 @@ jobs:
       - run:
           name: Build image
           command:  docker build -t fibonacci -f ./client/Dockerfile.dev .
+      - run:
+          name: Run testes
+          command: docker run -e fibonacci npm run test
