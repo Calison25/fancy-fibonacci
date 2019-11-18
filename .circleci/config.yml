@@ -1,6 +1,7 @@
 version: 2
 jobs:
   build:
-    machine: true
+    docker: docker:17.05.0-ce-git
     steps:
-      - run: docker build -t fibonacci -f ./client/Dockerfile.dev .
+      - checkout
+      - setup_remote_docker
